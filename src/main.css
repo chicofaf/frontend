@@ -1,0 +1,65 @@
+.main {
+    background-color: #DCDCDC;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    font-size: 40px;
+    width: 100%;
+    background-color: #1da1f2;
+    height: 280px;
+}
+
+.leftProfile {
+    font-size: 20px;
+    background-color: white;
+    height: 100%;
+    margin-right: 10px;
+    margin-left: 18px;
+}
+
+.timeLine {
+    font-size: 20px;
+    background-color: white;
+    height: 100%;
+}
+
+.rightSidebar {
+    font-size: 20px;
+    background-color: white;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.naviBar {
+    background-color: white;
+    font-size: 20px;
+    width: 100%;
+    height: 60px;
+}
+
+.imageAvatar{
+   width: 200px;
+   height: 200px;
+   border-radius: 100%;
+   padding: 5px;
+   background-color: white;
+}
+.avatarProfile {   
+   margin-left: 20px;
+   position: absolute;
+   left: 20px;
+   top: -110px;
+   z-index: 100000000000;    
+}
+
+.btnNaviBar {    
+    color: #657786;
+    font-weight: bold;  
+    font-size: 12px;
+    letter-spacing: .02em;
+    transition: color .15s ease-in-out;
+}
+
+
