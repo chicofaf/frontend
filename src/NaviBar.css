@@ -1,0 +1,8 @@
+.naviBar {
+    background-color: white;
+    font-size: 20px;
+    width: 100%;
+    height: 60px;
+}
+
+.ProfileNav-stat{height:60px;-moz-box-sizing:border-box;box-sizing:border-box;border-bottom:0 solid;display:block;line-height:1;padding:14px 15px 7px;transition:all .15s ease-in-out}.ProfileNav-stat--link:hover,.ProfileNav-stat--link:focus{text-decoration:none}.ProfileNav-label,.ProfileNav-value{display:block}.ProfileNav-label{color:#657786;font-weight:bold;font-size:12px;letter-spacing:.02em;transition:color .15s ease-in-out}.ProfileNav-value{color:#66757f;font-size:18px;font-weight:bold;padding-top:3px;transition:color .15s ease-in-out}.ProfileNav-item.is-active,.ProfileNav-item.is-active:hover{border-color:#657786;color:#657786;cursor:default}.ProfileNav-item.is-active .ProfileNav-label,.ProfileNav-item.is-active:hover .ProfileNav-label{color:#657786}.ProfileNav-item.is-active .ProfileNav-value,.ProfileNav-item.is-active:hover .ProfileNav-value{color:inherit}.ProfileNav-item.is-active .ProfileNav-stat,.ProfileNav-stat:hover,.ProfileNav-stat:focus{border-bottom-width:2px}.ProfileNav-stat--moreLink:hover,.ProfileNav-stat--moreLink:focus{border-bottom-width:0}.ProfileNav-stat:hover .ProfileNav-value,.ProfileNav-stat:focus .ProfileNav-value{color:inherit}.ProfileNav-dropdownCaret{color:#657786;vertical-align:top}.ProfileNav-item--more.open .ProfileNav-dropdownCaret,.ProfileNav-item--more:hover .ProfileNav-dropdownCaret{color:inherit}.ProfileNav-item--more .dropdown-menu{margin-top:-1px}.ProfileNav-dropdownItem{font-size:14px!important}.ProfilePage{line-height:1.375;min-width:936px}
