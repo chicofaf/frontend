@@ -1,0 +1,22 @@
+.fullname {
+    word-break: break-all;
+    color: #14171a;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.u-textTruncate {
+    max-width: 100%;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    white-space: nowrap!important;
+    word-wrap: normal!important;
+}
+
+.imageAvatarTweet{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    padding: 5px;
+    background-color: white;
+ }

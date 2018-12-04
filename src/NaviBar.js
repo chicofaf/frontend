@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './NaviBar.css';
+import './css/NaviBar.css';
 
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 
 export const NaviBar = props => {
     return (
@@ -20,39 +20,42 @@ export const NaviBar = props => {
                 </a>
             </Col>
             <Col span={1}>
-                <a class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Following</span>
-                    <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_following}
+                    <span class="ProfileNav-value"  data-count="8273" data-is-compact="false">{props.contador_following}
                     </span>
                 </a>
             </Col>
             <Col span={1}>
-                <a class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Followers</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_followers}
                     </span>
                 </a>
             </Col>
             <Col span={1}>
-                <a class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Likes</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_likes}
                     </span>
                 </a>
             </Col>
             <Col span={1}>
-                <a class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <a  style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Lists</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_lists}
                     </span>
                 </a>
             </Col>
             <Col span={1}>
-                <a class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Moments</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_moments}
                     </span>
                 </a>
+            </Col>
+            <Col style={{marginLeft: "40px"}} span={2}>
+            <Button type="primary">Tweet</Button>
             </Col>
         </Row>
     );
