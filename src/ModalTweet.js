@@ -1,11 +1,15 @@
 import React from 'react';
 import { Modal, Button, Input } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {clickButtonSalvar} from './actions';
 
 const { TextArea } = Input;
 
-export default class ModalTweet extends React.Component {
+class ModalTweet extends React.Component {
     state = { visible: false, text_content: "" }
 
+    
     handleChange = (value) => {
         //if (this.state.text_content.length < 280) {
             this.setState({ text_content: value });
@@ -13,7 +17,20 @@ export default class ModalTweet extends React.Component {
     }
 
     salvarTweet = () => {
-        this.setState({visible: false});
+        const {
+            clickButtonSalvar,
+            tweets
+        } = this.props;
+
+        tweets.push({titulo: this.state.text_content});
+
+        
+
+        clickButtonSalvar(tweets); 
+
+        console.log("aqui ", this.props.tweets);
+
+        this.setState({text_content: "",visible: false});
     }
 
     render() {
@@ -34,3 +51,12 @@ export default class ModalTweet extends React.Component {
         );
     }
 }
+
+const mapStateToProps = store => ({
+    tweets: store.tweetReducer.tweets
+  });
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ clickButtonSalvar }, dispatch);
+  
+export default connect(mapStateToProps, mapDispatchToProps)(ModalTweet);

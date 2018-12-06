@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import './css/main.css';
 import 'antd/dist/antd.css'
-import { Tweet } from './components/tweet';
 
 import { Row, Col, Button } from 'antd';
 
 import { NaviBar } from './components/NaviBar';
+import {Tweet} from './components/tweet';
 
 import ModalTweet from './ModalTweet';
 
-//import './twitter_core.bundle.css';
-//import './twitter_more_2.bundle.css';
-//import './twitter_more_1.bundle.css';
-//import './twitter_profile_editing.bundle.css';
+import { connect } from 'react-redux';
 
 
 class Main extends Component {
@@ -22,36 +19,19 @@ class Main extends Component {
   }
 
 
-  adicionarTweet = () => {
-    const { tweets } = this.state;
-    this.setState({showModalTweet: true});
-    //tweets.push(<Tweet />);
-    //this.setState({ ...tweets });
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.someValue!==this.props.someValue){
+      this.setState({tweets: nextProps.tweets });
+      this.classMethod();
+    }
   }
-
-  handleOk = () => {
-    this.setState({showModalTweet: false});
-  }
-  handleCancel = () => {
-    this.setState({showModalTweet: false})
-  }
-
-  renderModalTweet = () => {
-    return this.state.showModalTweet && 
-      <ModalTweet 
-        handleCancel={this.handleCancel}
-        handleOk={this.handleOk} 
-        visible={this.state.showModalTweet}
-      />
-  }
-
 
 
   render() {
-    const { tweets } = this.state;
+    const { tweets } = this.props;
+    console.log(tweets);
     return (
       <div>
-        {this.renderModalTweet()}
         <Row >
           <Col className="header" span={24}></Col>
         </Row>
@@ -60,7 +40,6 @@ class Main extends Component {
           <Col className="leftProfile" span={6}>profile</Col>
           <Col className="timeLine" span={11}>
             
-            {tweets.map(tweet => tweet)}
           </Col>
           <Col className="rightSidebar" span={6}>right</Col>
         </Row>
@@ -69,4 +48,8 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapStateToProps = store => ({
+  tweets: store.tweetReducer.tweets
+});
+
+export default connect(mapStateToProps)(Main);
