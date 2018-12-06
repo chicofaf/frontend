@@ -1,8 +1,9 @@
 import React from 'react';
 
-import './css/NaviBar.css';
+import '../css/NaviBar.css';
 
 import { Row, Col, Button } from 'antd';
+import ModalTweet from '../ModalTweet';
 
 export const NaviBar = props => {
     return (
@@ -13,49 +14,49 @@ export const NaviBar = props => {
                 </div>
             </Col>
             <Col span={1}>
-                <a class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <a className="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Tweets</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_tweets}
                     </span>
                 </a>
             </Col>
             <Col span={1}>
-                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <div style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Following</span>
                     <span class="ProfileNav-value"  data-count="8273" data-is-compact="false">{props.contador_following}
                     </span>
-                </a>
+                </div>
             </Col>
             <Col span={1}>
-                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <div style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Followers</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_followers}
                     </span>
-                </a>
+                </div>
             </Col>
             <Col span={1}>
-                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <div style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Likes</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_likes}
                     </span>
-                </a>
+                </div>
             </Col>
             <Col span={1}>
-                <a  style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <div  style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Lists</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_lists}
                     </span>
-                </a>
+                </div>
             </Col>
             <Col span={1}>
-                <a style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
+                <div style={{textAlign:"center"}} class="ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav u-textUserColor" data-nav="tweets" href="/Twitter" data-original-title="8,273 Tweets">
                     <span class="ProfileNav-label" aria-hidden="true">Moments</span>
                     <span class="ProfileNav-value" data-count="8273" data-is-compact="false">{props.contador_moments}
                     </span>
-                </a>
+                </div>
             </Col>
-            <Col style={{marginLeft: "40px"}} span={2}>
-            <Button type="primary">Tweet</Button>
+            <Col span={2} style={{marginLeft:"40px"}}>
+                <ModalTweet/>
             </Col>
         </Row>
     );

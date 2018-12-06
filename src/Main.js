@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
-//import './App.css';
 import './css/main.css';
 import 'antd/dist/antd.css'
-import { Timeline } from 'react-twitter-widgets'
-import {Tweet} from './tweet';
+import { Tweet } from './components/tweet';
 
 import { Row, Col, Button } from 'antd';
 
-import ImageHeader from './ImageHeader';
-import {NaviBar} from './NaviBar';
+import { NaviBar } from './components/NaviBar';
+
+import ModalTweet from './ModalTweet';
 
 //import './twitter_core.bundle.css';
 //import './twitter_more_2.bundle.css';
@@ -17,33 +15,53 @@ import {NaviBar} from './NaviBar';
 //import './twitter_profile_editing.bundle.css';
 
 
-
-
-
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0, contador_tweets: 526, tweets:[]};
+    this.state = { counter: 0, contador_tweets: 526, tweets: [] };
   }
 
 
   adicionarTweet = () => {
-    const {tweets} = this.state;
-    tweets.push(<Tweet/>);
-    this.setState({...tweets});
+    const { tweets } = this.state;
+    this.setState({showModalTweet: true});
+    //tweets.push(<Tweet />);
+    //this.setState({ ...tweets });
   }
 
+  handleOk = () => {
+    this.setState({showModalTweet: false});
+  }
+  handleCancel = () => {
+    this.setState({showModalTweet: false})
+  }
+
+  renderModalTweet = () => {
+    return this.state.showModalTweet && 
+      <ModalTweet 
+        handleCancel={this.handleCancel}
+        handleOk={this.handleOk} 
+        visible={this.state.showModalTweet}
+      />
+  }
+
+
+
   render() {
-    const {tweets} = this.state;
+    const { tweets } = this.state;
     return (
       <div>
+        {this.renderModalTweet()}
         <Row >
           <Col className="header" span={24}></Col>
         </Row>
-        <NaviBar contador_tweets={3343} contador_following={567} contador_followers={4588} contador_likes={21} contador_lists={100} contador_moments={332}/>
+        <NaviBar/>
         <Row style={{ marginTop: "10px" }}>
           <Col className="leftProfile" span={6}>profile</Col>
-          <Col className="timeLine" span={11}><Button onClick={() => this.adicionarTweet()} type="primary">Tweet</Button>{tweets.map(tweet=> tweet)}</Col>
+          <Col className="timeLine" span={11}>
+            
+            {tweets.map(tweet => tweet)}
+          </Col>
           <Col className="rightSidebar" span={6}>right</Col>
         </Row>
       </div>
