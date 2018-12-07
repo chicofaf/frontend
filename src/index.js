@@ -6,7 +6,7 @@ import Main from './Main';
 import { createStore,combineReducers } from 'redux';
 import { Reducers } from './reducers';
 import { Provider } from 'react-redux';
-export const Store = createStore(combineReducers(Reducers));
+export const Store = createStore(combineReducers(Reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 ReactDOM.render(<Provider store={Store}>
     <Main />

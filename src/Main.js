@@ -15,23 +15,20 @@ import { connect } from 'react-redux';
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0, contador_tweets: 526, tweets: [] };
+    this.state = {tweets: props.initialValue};
   }
 
 
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.someValue!==this.props.someValue){
-      this.setState({tweets: nextProps.tweets });
-      this.classMethod();
-    }
+  updateTweets = () => {
+    this.setState({tweets: this.props.tweets});
   }
-
 
   render() {
-    const { tweets } = this.props;
+    const {tweets} = this.state;
     console.log(tweets);
     return (
       <div>
+        <ModalTweet updateTweets={this.updateTweets}/>
         <Row >
           <Col className="header" span={24}></Col>
         </Row>
@@ -39,7 +36,7 @@ class Main extends Component {
         <Row style={{ marginTop: "10px" }}>
           <Col className="leftProfile" span={6}>profile</Col>
           <Col className="timeLine" span={11}>
-            
+          {tweets}  
           </Col>
           <Col className="rightSidebar" span={6}>right</Col>
         </Row>

@@ -5,7 +5,10 @@ import '../css/NaviBar.css';
 import { Row, Col, Button } from 'antd';
 import ModalTweet from '../ModalTweet';
 
+import { connect } from 'react-redux';
+
 export const NaviBar = props => {
+
     return (
         <Row className='naviBar'>
             <Col span={7}>
@@ -56,8 +59,8 @@ export const NaviBar = props => {
                 </div>
             </Col>
             <Col span={2} style={{marginLeft:"40px"}}>
-                <ModalTweet/>
             </Col>
         </Row>
     );
 }
+  

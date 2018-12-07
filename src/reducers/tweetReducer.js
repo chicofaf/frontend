@@ -1,5 +1,5 @@
   const initialState = {
-    tweets: [{titulo: "esse é do reducer"}]
+    tweets: []
   };
   export const tweetReducer = (state = initialState, action) => {
     switch (action.type) {
