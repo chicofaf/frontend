@@ -3,7 +3,7 @@ import { Modal, Button, Input } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {clickButtonSalvar} from './actions';
-import {Tweet} from './components/tweet';
+import Tweet from './components/Tweet';
 
 const { TextArea } = Input;
 
@@ -24,7 +24,7 @@ class ModalTweet extends React.Component {
         } = this.props;
 
         tweets.push(<Tweet titulo={this.state.text_content}/>);
-        clickButtonSalvar(tweets); 
+        clickButtonSalvar({tweets: tweets, contador_tweets: this.props.contador_tweets +1}); 
         this.props.updateTweets && this.props.updateTweets();
         this.setState({text_content: "",visible: false});
 
@@ -50,7 +50,8 @@ class ModalTweet extends React.Component {
 }
 
 const mapStateToProps = store => ({
-    tweets: store.tweetReducer.tweets
+    tweets: store.tweetReducer.tweets,
+    contador_tweets: store.tweetReducer.contador_tweets
   });
 
 const mapDispatchToProps = dispatch =>
