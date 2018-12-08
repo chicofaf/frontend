@@ -15,3 +15,8 @@ export const uploadCover = value => ({
   type: 'ADICIONA_COVER',
   url_cover: value
 })
+
+export const editaUsuario = value => ({
+  type: 'EDITA_USUARIO',
+  nome_usuario: value
+})

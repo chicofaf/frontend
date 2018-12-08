@@ -3,7 +3,7 @@ import { Modal, Button, Input } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {clickButtonSalvar} from './actions';
-import Tweet from './components/Tweet';
+import Tweet from './Tweet';
 
 const { TextArea } = Input;
 
@@ -17,13 +17,23 @@ class ModalTweet extends React.Component {
         //}
     }
 
+    generateUUID = () => {
+        var d = new Date().getTime();
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (d + Math.random()*16)%16 | 0;
+            d = Math.floor(d/16);
+            return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+        });
+        return uuid;
+    };
+
     salvarTweet = () => {
         const {
             clickButtonSalvar,
             tweets
         } = this.props;
 
-        tweets.push(<Tweet titulo={this.state.text_content}/>);
+        tweets.push(<Tweet titulo={this.state.text_content} key={this.generateUUID()}/>);
         clickButtonSalvar({tweets: tweets, contador_tweets: this.props.contador_tweets +1}); 
         this.props.updateTweets && this.props.updateTweets();
         this.setState({text_content: "",visible: false});

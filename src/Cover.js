@@ -34,8 +34,8 @@ class ImageCover extends React.Component {
 
     render() {
         const uploadButton = (
-            <div style={{ marginTop: "110px" }}>
-                <Icon type={this.state.loading ? 'loading' : 'plus'} />
+            <div type="button" style={{ marginTop: "110px", marginLeft: "37px" }}>
+                <Icon type={this.state.loading ? 'loading' : 'upload'} />
                 <div className="ant-upload-text">Upload Cover JPG</div>
             </div>
         );

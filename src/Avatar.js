@@ -23,11 +23,7 @@ class ImageAvatar extends React.Component {
             message.error('You can only upload JPG file!');
             return;
         }
-        const isLt2M = file.size / 1024 / 1024 < 2;
-        if (!isLt2M) {
-            message.error('Image must smaller than 2MB!');
-        }
-        return isJPG && isLt2M;
+        return isJPG;
     }
 
     handleChange = (info) => {
@@ -37,8 +33,8 @@ class ImageAvatar extends React.Component {
 
     render() {
         const uploadButton = (
-            <div style={{ marginTop: "110px" }}>
-                <Icon type={this.state.loading ? 'loading' : 'plus'} />
+            <div type="button" style={{ marginTop: "110px" }}>
+                <Icon type={this.state.loading ? 'loading' : 'upload'} />
                 <div className="ant-upload-text">Upload Avatar JPG</div>
             </div>
         );

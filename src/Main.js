@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import './css/main.css';
 import 'antd/dist/antd.css'
 
-import { Row, Col} from 'antd';
+import { Row, Col, Icon} from 'antd';
 
 import './css/NaviBar.css';
 
 import ModalTweet from './ModalTweet';
+import ModalUsuario from './ModalUsuario';
 
 import { connect } from 'react-redux';
 import ImageAvatar from './Avatar';
 import ImageCover from './Cover';
+import { Button } from 'antd/lib/radio';
 
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = { tweets: props.initialValue };
+    this.state = { tweets: props.initialValue, nome_usuario: ""};
   }
 
 
@@ -28,8 +30,13 @@ class Main extends Component {
     this.setState({url_avatar : this.props.url_avatar});
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({nome_usuario: nextProps.nome_usuario});
+  }
+
+  
   render() {
-    const { tweets } = this.state;
+    const { tweets, nome_usuario } = this.state;
     return (
       <div>
 
@@ -55,7 +62,7 @@ class Main extends Component {
           </Col>
         </Row>
         <Row style={{ marginTop: "10px" }}>
-          <Col className="leftProfile" span={6}>N</Col>
+          <Col className="leftProfile" span={6}>Usuário: {nome_usuario} <ModalUsuario refreshUsuario={this.refreshUsuario}/></Col>
           <Col className="timeLine" span={11}>
             <Row style={{marginLeft: "10px", marginBottom: "10px"}}>
               oi, aqui são listados seus tweets!
@@ -73,7 +80,8 @@ class Main extends Component {
 const mapStateToProps = store => ({
   tweets: store.tweetReducer.tweets,
   contador_tweets: store.tweetReducer.contador_tweets,
-  url_avatar : store.imageReducer.url_avatar
+  url_avatar : store.imageReducer.url_avatar,
+  nome_usuario : store.usuarioReducer.nome_usuario
 });
 
 export default connect(mapStateToProps)(Main);

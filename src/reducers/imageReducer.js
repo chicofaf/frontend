@@ -13,7 +13,7 @@ export const imageReducer = (state = initialState, action) => {
     case 'ADICIONA_COVER':
       return {
         ...state,
-        url_avatar: action.url_avatar
+        url_cover: action.url_cover
       };
     default:
       return state;
